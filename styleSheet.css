@@ -1,0 +1,12 @@
+
+body{
+  background-color: black;
+  filter: grayscale();
+}
+
+
+#seqencer-container {
+  text-align: center;
+  font-size: 20px;
+
+}
