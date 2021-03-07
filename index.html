@@ -68,15 +68,14 @@
 <script>
 
 const Players = [
-  new Tone.Player("https://tonejs.github.io/audio/drum-samples/handdrum-loop.mp3"), //row 0
-  new Tone.Player("https://tonejs.github.io/audio/berklee/ahntone_c3.mp3"), //row 1
-  new Tone.Player()  //row 2
+  new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/kick.wav"), //row 0
+  new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/snare.wav"), //row 1
+  new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav")  //row 2
 ];
 
 Players.forEach(player => player.toDestination());
 
 const rows = document.body.querySelectorAll('div > div');
-      samples = ['./samples/kick.wav', 'E4', 'C3'];
 let index = 0;
 
 Tone.Transport.scheduleRepeat(repeat, '8n');
@@ -87,7 +86,6 @@ function repeat(time){
   let step = index % 8;
   for (let i = 0; i < rows.length; i++) {
     let player = Players[i],
-      sample = samples[i],
       row = rows[i],
       input = row.querySelector(`input:nth-child(${step + 1})`);
     if (input.checked) player.start(time);
