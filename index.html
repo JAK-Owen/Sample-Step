@@ -67,16 +67,16 @@
 
 <script>
 
-const synths = [
-  new Tone.Synth(), //row 0
-  new Tone.Synth(), //row 1
-  new Tone.Synth()  //row 2
+const Players = [
+  new Tone.Player("https://tonejs.github.io/audio/drum-samples/handdrum-loop.mp3"), //row 0
+  new Tone.Player("https://tonejs.github.io/audio/berklee/ahntone_c3.mp3"), //row 1
+  new Tone.Player()  //row 2
 ];
 
-synths.forEach(synth => synth.toDestination());
+Players.forEach(player => player.toDestination());
 
 const rows = document.body.querySelectorAll('div > div');
-      notes = ['G5', 'E4', 'C3'];
+      samples = ['./samples/kick.wav', 'E4', 'C3'];
 let index = 0;
 
 Tone.Transport.scheduleRepeat(repeat, '8n');
@@ -86,11 +86,11 @@ Tone.Transport.start();
 function repeat(time){
   let step = index % 8;
   for (let i = 0; i < rows.length; i++) {
-    let synth = synths[i],
-      note = notes[i],
+    let player = Players[i],
+      sample = samples[i],
       row = rows[i],
       input = row.querySelector(`input:nth-child(${step + 1})`);
-    if (input.checked) synth.triggerAttackRelease(note, '8n', time);
+    if (input.checked) player.start(time);
 
 
   }
