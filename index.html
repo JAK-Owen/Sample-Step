@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html>
 
+<html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
 <script src= 'https://cdn.jsdelivr.net/npm/nexusui@latest/dist/NexusUI.js'></script>
 <script type="text/javascript" src="https://unpkg.com/@tonejs/ui@0.0.8/build/tonejs-ui.js"></script>
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 <link rel="stylesheet" href="styleSheet.css">
+
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
+<script>
+
+async function getPosts(){
+  const response = await axios.get("http://localhost:3000/posts");
+
+  console.log(response.data);
+
+}
+
+getPosts();
+
+</script>
+
+
+
+
+
+<!--
+  <script type="module">
+
+  import Server from './server.js';
+   // console.log(test());
+
+   var serverInstance = new Server()
+// serverInstance.test()
+
+  </script> -->
+
 
 <body>
 <!-- //////////////////////////////////////////////////////////////////////////
@@ -124,6 +156,7 @@ Tone.Transport.bpm.value = 130;
 
 
 
+////////////////////////////////////////////////////////////////////////
 
 
 

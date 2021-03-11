@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JAKOwen-gh/Sample-Step#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "scss": "^0.2.4",
     "tone": "^14.7.77"
   }
